@@ -135,7 +135,56 @@
   .evb1{font:inherit;font-size:12px;border:1px solid var(--line);background:#fff;border-radius:99px;padding:2px 9px;cursor:pointer}
   .evb1.on{background:#1d4ed8;border-color:#1d4ed8;color:#fff;font-weight:800}
   .evbadge{font-size:11px;font-weight:700;color:#1d4ed8;background:#eff6ff;border:1px solid #bfdbfe;border-radius:99px;padding:0 7px;margin-left:6px;vertical-align:middle}
-  .evnote{margin:10px 0 0;font-size:12.5px;color:#475569;border-top:1px dashed #cbd5e1;padding-top:8px}</style>
+  .evnote{margin:10px 0 0;font-size:12.5px;color:#475569;border-top:1px dashed #cbd5e1;padding-top:8px}  /* ===== 디자인 ⑥ 벤토 미니멀 (2026-10-16) ===== */
+  :root{ --bg:#f2f3f5; --ink:#14161a; --sub:#6b7280; --line:#e5e7eb; --accent:#4f46e5; --soft:#eef0ff; }
+  body{letter-spacing:-.1px}
+  header{background:#14161a;padding:9px 18px}
+  header h1{font-size:16px;letter-spacing:-.3px}
+  header button,header label.btn{background:#ffffff14;border:1px solid #ffffff26;border-radius:8px;font-weight:600}
+  .steps{background:#e6e8ec;border-radius:14px;padding:4px;gap:4px;max-width:948px;margin-top:14px}
+  .steps button{border:0;background:transparent;border-radius:11px;padding:8px 14px;color:#6b7280}
+  .steps button small{color:#9ca3af}
+  .steps button.on{background:#fff;color:#14161a;box-shadow:0 1px 3px #0002}
+  .steps button.on small{color:#6b7280}
+  .prog{font-size:12.5px}
+  .prog .bar{height:4px;background:#e0e3e8}
+  .prog .bar i{background:#4f46e5}
+  .intro{background:#fff;border:1px solid var(--line);border-radius:16px;color:#4b5563}
+  .intro b{color:#14161a}
+  .intro button{border:1px solid #d9dce2;color:#374151}
+  .card{border-radius:18px;box-shadow:none;border:1px solid var(--line)}
+  .card h2{font-size:17px;letter-spacing:-.3px}
+  .card h2 .n{border-radius:9px;background:#14161a;width:28px;height:28px;font-size:14px}
+  .card.done h2 .n{background:#4f46e5}
+  .q>label{font-weight:700;color:#14161a}
+  input[type=text],input[type=number],textarea{border:1px solid #d9dce2;border-radius:10px;background:#fafafa}
+  input:focus,textarea:focus{outline:2px solid #4f46e5;outline-offset:0;border-color:#4f46e5;background:#fff}
+  .chips span{color:#6b7280;font-weight:700}
+  .chips button{border:1px solid #e5e7eb;background:#f1f2f5;color:#374151;border-radius:8px}
+  .chips button:hover{background:#e4e7ff;border-color:#c7ccff}
+  .tags label{border:1px solid #d9dce2;border-radius:8px}
+  .tags label.on{background:#eef0ff;border-color:#4f46e5;color:#3730a3}
+  .out{background:#f7f7fb;border:1px solid #e5e7eb;border-radius:14px}
+  .out .oh{color:#374151}
+  .out .oh button{border:1px solid #d9dce2;color:#374151;border-radius:8px}
+  .out .oh .hb2{background:#4f46e5;color:#fff;border:0}
+  .helper{border:1px solid #e5e7eb;border-radius:14px}
+  .helper .hh{color:#14161a}
+  .helper .hc span{background:#f1f2f5;border-radius:8px}
+  .helper .hc b{color:#4f46e5}
+  .helper .hd button,.helper .vr button{border:1px solid #d9dce2;background:#f1f2f5;color:#374151;border-radius:8px}
+  .helper .hk{background:#f7f7fb;color:#4b5563}
+  .calc,.logstat{background:#f1f2f5;border:1px solid #e5e7eb;border-radius:12px}
+  .calc .big{color:#4f46e5}
+  .final button{border-radius:10px;border:1px solid #d9dce2}
+  .final .go{background:#4f46e5;box-shadow:none;border-radius:10px}
+  nav{background:#fffffff2;border-top:1px solid #e5e7eb}
+  nav button{border-radius:10px}
+  nav button.primary{background:#4f46e5;border-color:#4f46e5}
+  .qlist label{border:1px solid #e5e7eb;border-radius:10px}
+  .qlist label.on{background:#eef0ff;border-color:#4f46e5;color:#3730a3}
+  .doc{border:1px solid #e5e7eb;box-shadow:none;border-radius:14px}
+</style>
 </head>
 <body>
 <header>
@@ -316,8 +365,8 @@ function cardData(){
 }
 function drawCard(cv){
   const g = cv.getContext("2d"), W = cv.width, H = cv.height, o = avOpts(), c = cardData();
-  g.clearRect(0, 0, W, H); g.fillStyle = "#f8fafc"; g.fillRect(0, 0, W, H);
-  const grad = g.createLinearGradient(0, 0, 0, H); grad.addColorStop(0, o.accent); grad.addColorStop(1, "#0f172a"); g.fillStyle = grad; g.fillRect(0, 0, 360, H);
+  g.clearRect(0, 0, W, H); g.fillStyle = "#f2f3f5"; g.fillRect(0, 0, W, H);
+  g.fillStyle = "#14161a"; g.fillRect(0, 0, 360, H); g.fillStyle = o.accent; g.fillRect(0, 0, 360, 10);
   g.fillStyle = "#fff"; g.beginPath(); g.arc(180, 170, 108, 0, 7); g.fill(); drawAvatar(g, 76, 66, 208, o);
   g.textBaseline = "alphabetic"; g.textAlign = "center"; g.fillStyle = "#fff"; g.font = "800 38px 'Malgun Gothic','Apple SD Gothic Neo',sans-serif"; g.fillText(c.nm, 180, 330);
   g.font = "600 18px 'Malgun Gothic',sans-serif"; g.fillStyle = "rgba(255,255,255,.9)"; g.fillText(c.sub || "나이 · 직업", 180, 360);
@@ -328,14 +377,14 @@ function drawCard(cv){
   g.font = "500 15px 'Malgun Gothic',sans-serif"; g.fillStyle = "rgba(255,255,255,.88)"; let iy = cy + 40; c.sub2.forEach(t => { iy = wrapText(g, "• " + t, 34, iy, 296, 22, 2) + 2; });
   g.font = "700 13px 'Malgun Gothic',sans-serif"; g.fillStyle = "rgba(255,255,255,.65)"; g.fillText("CUSTOMER PERSONA", 34, H - 28);
   // 오른쪽: 한마디
-  g.fillStyle = "#fff"; rr(g, 392, 28, 780, 104, 20); g.fill(); g.strokeStyle = o.accent; g.lineWidth = 2; g.stroke();
+  g.fillStyle = "#fff"; rr(g, 392, 28, 780, 104, 20); g.fill(); g.strokeStyle = "#e5e7eb"; g.lineWidth = 1.5; g.stroke();
   g.fillStyle = o.accent; g.font = "800 50px Georgia,serif"; g.fillText("“", 408, 86);
   g.fillStyle = "#1e293b"; g.font = "700 24px 'Malgun Gothic',sans-serif"; wrapText(g, c.quote || "(대표 한마디를 적어 보세요)", 452, 70, 690, 32, 2);
   const boxes = [["🎯 목표와 동기", c.goals, "#16a34a"], ["😣 불편·고충", c.pains, "#dc2626"], ["🛒 행동 패턴", c.beh, "#d97706"], ["🕒 하루 일과 (★ 불편한 순간)", c.day, "#2563eb"]];
   boxes.forEach((b, i) => {
     const bx = 392 + (i % 2) * 394, by = 154 + Math.floor(i / 2) * 296, bw = 386, bh = 284;
-    g.fillStyle = "#fff"; rr(g, bx, by, bw, bh, 18); g.fill(); g.fillStyle = b[2]; rr(g, bx, by, bw, 8, 4); g.fill();
-    g.fillStyle = b[2]; g.font = "800 20px 'Malgun Gothic',sans-serif"; g.fillText(b[0], bx + 20, by + 40);
+    g.fillStyle = "#fff"; rr(g, bx, by, bw, bh, 18); g.fill(); g.strokeStyle = "#e5e7eb"; g.lineWidth = 1.5; g.stroke(); g.fillStyle = b[2]; rr(g, bx + 20, by + 50, 36, 4, 2); g.fill();
+    g.fillStyle = "#14161a"; g.font = "800 20px 'Malgun Gothic',sans-serif"; g.fillText(b[0], bx + 20, by + 40);
     g.fillStyle = "#1e293b"; g.font = "500 17px 'Malgun Gothic',sans-serif"; let yy = by + 72;
     (b[1].length ? b[1] : ["(아직 비어 있어요)"]).slice(0, 6).forEach((t, k) => { yy = wrapText(g, (b[1].length && i !== 3 && i !== 2 ? ["①", "②", "③"][k] + " " : "• ") + t, bx + 20, yy, bw - 40, 24, 2) + 8; });
   });
